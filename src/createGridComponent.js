@@ -369,7 +369,7 @@ export default function createGridComponent({
         }
 
         for (
-          let rowIndex = Math.max(0, rowStartIndex);
+          let rowIndex = Math.max(1, rowStartIndex);
           rowIndex <= rowStopIndex;
           rowIndex++
         ) {
@@ -385,7 +385,7 @@ export default function createGridComponent({
           );
 
           for (
-            let columnIndex = Math.max(1, columnStartIndex);
+            let columnIndex = Math.max(0, columnStartIndex);
             columnIndex <= columnStopIndex;
             columnIndex++
           ) {
