@@ -369,7 +369,7 @@ export default function createGridComponent({
         }
 
         for (
-          let rowIndex = Math.max(1, rowStartIndex);
+          let rowIndex = Math.max(0, rowStartIndex);
           rowIndex <= rowStopIndex;
           rowIndex++
         ) {
@@ -413,7 +413,7 @@ export default function createGridComponent({
         this.props,
         this._instanceProps
       );
-      
+
       const topLeftStyle = this._getItemStyle(0, 0);
 
       items.unshift(

@@ -5,8 +5,8 @@ Object.defineProperty(exports, '__esModule', { value: true });
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
 var _extends = _interopDefault(require('@babel/runtime/helpers/extends'));
-var _inheritsLoose = _interopDefault(require('@babel/runtime/helpers/inheritsLoose'));
 var _assertThisInitialized = _interopDefault(require('@babel/runtime/helpers/assertThisInitialized'));
+var _inheritsLoose = _interopDefault(require('@babel/runtime/helpers/inheritsLoose'));
 var memoizeOne = _interopDefault(require('memoize-one'));
 var react = require('react');
 var _objectWithoutPropertiesLoose = _interopDefault(require('@babel/runtime/helpers/objectWithoutPropertiesLoose'));
@@ -115,11 +115,11 @@ function createGridComponent(_ref2) {
       var _this;
 
       _this = _PureComponent.call(this, props) || this;
-      _this._instanceProps = initInstanceProps(_this.props, _assertThisInitialized(_assertThisInitialized(_this)));
+      _this._instanceProps = initInstanceProps(_this.props, _assertThisInitialized(_this));
       _this._resetIsScrollingTimeoutId = null;
       _this._outerRef = void 0;
       _this.state = {
-        instance: _assertThisInitialized(_assertThisInitialized(_this)),
+        instance: _assertThisInitialized(_this),
         isScrolling: false,
         horizontalScrollDirection: 'forward',
         scrollLeft: typeof _this.props.initialScrollLeft === 'number' ? _this.props.initialScrollLeft : 0,
@@ -395,7 +395,7 @@ function createGridComponent(_ref2) {
           }));
         }
 
-        for (var _rowIndex = Math.max(1, rowStartIndex); _rowIndex <= rowStopIndex; _rowIndex++) {
+        for (var _rowIndex = Math.max(0, rowStartIndex); _rowIndex <= rowStopIndex; _rowIndex++) {
           leftStickyItems.push(react.createElement(children, {
             columnIndex: 0,
             data: itemData,
@@ -517,11 +517,11 @@ function createGridComponent(_ref2) {
 
         this._callOnScroll(_scrollLeft, _scrollTop, _horizontalScrollDirection, _verticalScrollDirection, _scrollUpdateWasRequested);
       }
-    }; // Lazily create and cache item styles while scrolling,
+    } // Lazily create and cache item styles while scrolling,
     // So that pure component sCU will prevent re-renders.
     // We maintain this cache, and pass a style prop rather than index,
     // So that List can clear cached styles and force item re-render if necessary.
-
+    ;
 
     _proto._getHorizontalRangeToRender = function _getHorizontalRangeToRender() {
       var _this$props6 = this.props,
@@ -987,11 +987,11 @@ function createListComponent(_ref) {
       var _this;
 
       _this = _PureComponent.call(this, props) || this;
-      _this._instanceProps = initInstanceProps(_this.props, _assertThisInitialized(_assertThisInitialized(_this)));
+      _this._instanceProps = initInstanceProps(_this.props, _assertThisInitialized(_this));
       _this._outerRef = void 0;
       _this._resetIsScrollingTimeoutId = null;
       _this.state = {
-        instance: _assertThisInitialized(_assertThisInitialized(_this)),
+        instance: _assertThisInitialized(_this),
         isScrolling: false,
         scrollDirection: 'forward',
         scrollOffset: typeof _this.props.initialScrollOffset === 'number' ? _this.props.initialScrollOffset : 0,
@@ -1303,11 +1303,11 @@ function createListComponent(_ref) {
 
         this._callOnScroll(_scrollDirection, _scrollOffset, _scrollUpdateWasRequested);
       }
-    }; // Lazily create and cache item styles while scrolling,
+    } // Lazily create and cache item styles while scrolling,
     // So that pure component sCU will prevent re-renders.
     // We maintain this cache, and pass a style prop rather than index,
     // So that List can clear cached styles and force item re-render if necessary.
-
+    ;
 
     _proto._getRangeToRender = function _getRangeToRender() {
       var _this$props5 = this.props,
@@ -1873,9 +1873,9 @@ function shouldComponentUpdate(nextProps, nextState) {
   return !areEqual(this.props, nextProps) || shallowDiffers(this.state, nextState);
 }
 
-exports.VariableSizeGrid = VariableSizeGrid;
-exports.VariableSizeList = VariableSizeList;
 exports.FixedSizeGrid = FixedSizeGrid;
 exports.FixedSizeList = FixedSizeList;
+exports.VariableSizeGrid = VariableSizeGrid;
+exports.VariableSizeList = VariableSizeList;
 exports.areEqual = areEqual;
 exports.shouldComponentUpdate = shouldComponentUpdate;
