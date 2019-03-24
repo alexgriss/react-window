@@ -409,7 +409,7 @@ function createGridComponent(_ref2) {
             style: this._getItemStyle(_rowIndex, 0)
           }));
 
-          for (var _columnIndex2 = Math.max(0, columnStartIndex); _columnIndex2 <= columnStopIndex; _columnIndex2++) {
+          for (var _columnIndex2 = Math.max(1, columnStartIndex); _columnIndex2 <= columnStopIndex; _columnIndex2++) {
             items.push(react.createElement(children, {
               columnIndex: _columnIndex2,
               data: itemData,
