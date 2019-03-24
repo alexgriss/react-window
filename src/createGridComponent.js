@@ -385,7 +385,7 @@ export default function createGridComponent({
           );
 
           for (
-            let columnIndex = Math.max(0, columnStartIndex);
+            let columnIndex = Math.max(1, columnStartIndex);
             columnIndex <= columnStopIndex;
             columnIndex++
           ) {
